@@ -1,0 +1,12 @@
+name: CI
+on:
+  issues:
+
+jobs:
+  issue:
+    runs-on: ubuntu-latest
+    steps:
+    - id: issue_body
+      uses: foresightyj/actions-parse-issue-body-as@master # sets output text which is equal to tainted value
+    - run: |
+        echo ${{steps.issue_body.outputs.text}}
